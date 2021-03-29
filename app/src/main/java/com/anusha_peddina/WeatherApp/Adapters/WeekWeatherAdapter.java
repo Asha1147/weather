@@ -47,7 +47,7 @@ public class WeekWeatherAdapter extends RecyclerView.Adapter<WeekWeatherAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         DailyForecast dailyForecast = dailyForecastList.get(position);
-        holder.dateTextView.setText(dailyForecast.date);
+        holder.dateTextView.setText(Utils.getFormattedDate(dailyForecast.date));
         holder.weatherIcon.setImageResource(Utils.getWeatherIcon(dailyForecast.day.icon));
         holder.weatherDescription.setText(dailyForecast.day.iconPhrase);
         if(isF) {

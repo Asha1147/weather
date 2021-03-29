@@ -27,6 +27,11 @@ public class Utils {
         return convertHoursTo12Hrs(Integer.parseInt(dt.hourOfDay().getAsShortText()));
     }
 
+    public static String getFormattedDate(String epochTime) {
+        DateTime dt = new DateTime( epochTime) ;
+        return dt.getMonthOfYear()+"/"+dt.getDayOfMonth()+"/"+dt.getYear();
+    }
+
     public static List<HomeScreenModel> getCurrentHomeScreenModelList(Context context) {
         List<HomeScreenModel> currentHomeScreenModelList = new ArrayList<>();
         SharedPreferences sharedPreferences = context.getSharedPreferences("app_info", Context.MODE_PRIVATE);
@@ -120,7 +125,7 @@ public class Utils {
             case 11:
             case 31:
             case 32:
-                return R.drawable.clouds;
+                return R.drawable.cloudy;
             case 12:
             case 13:
             case 14:
